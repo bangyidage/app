@@ -1,0 +1,49 @@
+.login {
+  min-height: 100vh;
+  font-size: 14px;
+  font-weight: 400;
+  color: #2F3742;
+}
+
+.title {
+  padding-top: 20px;
+  margin-bottom: 60px;
+  font-size: 20px;
+  font-weight: 800;
+  text-align: center;
+}
+
+.input-wrap {
+  display: flex;
+  padding-right: 10px;
+  margin: 20px;
+}
+
+.input-title {
+  display: inline-block;
+  width: 56px;
+  line-height: 40px;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.input {
+  margin-left: 10px;
+  flex: 1;
+  padding: 12px 0 12px 5px;
+  height: 14px;
+  border-radius: 4px;
+  border: 1px solid black;
+}
+
+.btn {
+  margin-top: 20px;
+  margin-left: 34%;
+  width: 140px;
+  height: 40px;
+  line-height: 40px;
+  background: #2F5AFF;
+  border-radius: 20px;
+  text-align: center;
+  color: white;
+}
