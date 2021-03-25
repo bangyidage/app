@@ -1,10 +1,6 @@
 import React from 'react'
 import './style.css'
-import Login from '../login'
-
-
-
-
+import Login from '../../components/login'
 
 export default class Home extends React.Component {
 
