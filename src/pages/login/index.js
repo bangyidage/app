@@ -1,13 +1,11 @@
 import React from 'react'
 import './style.css'
 import { store } from '../../store/store.js'
-import { ADD } from '../../store/action.js'
-import { ADD_ACTION } from '../../store/action-creators'
+import { ADD_ACTION, REDUCE_ACTION } from '../../store/action-creators'
 
 export default class Login extends React.Component {
   constructor(props) {
     super(props)
-    console.log(store.getState())
     this.state = {
       userID: '1',
       username: '',
@@ -28,16 +26,13 @@ export default class Login extends React.Component {
       password: e.target.value && e.target.value.trim()
     })
   }
-  //空
+  //空->false
   confirmData = (data) => {
-    let res = false
-    for (let item in data) {
-      if (!data[item]) {
-        res = true
-      }
+    const { userID, username, password } = data
+    if (!(userID && username && password)) {
+      return false
     }
-    console.log('res:' + res)
-    return res
+    return true
   }
   listerner = () => {
     let newState = store.getState();
@@ -45,39 +40,68 @@ export default class Login extends React.Component {
   }
   loginIn = (e) => {
 
-    const { userID, username, password } = this.state
+    let data = this.result()
+    let flag = this.confirmData(data)
+    if (!flag) {
+      console.log(!flag)
+      return
+    }
+    //action 是一个动作和当前状态值
+    // export const ADD_ACTION = (value) => ({
+    //   type: ADD,
+    //   value
+    // })
+    const action = ADD_ACTION(data)
+    store.dispatch(action)
 
+    store.subscribe(this.listerner)
+
+  }
+  loginOut = () => {
+    let data = this.result()
+
+    let flag = this.confirmData(data)
+    if (!flag) {
+      console.log(false)
+      return
+    }
+    const action = REDUCE_ACTION(data)
+    store.dispatch(action)
+    store.subscribe(this.listerner)
+  }
+  result = () => {
+    const { userID, username, password } = this.state
     let data = {
       userID: userID,
       username: username,
       password: password
     }
-
-    if (this.confirmData(data)) {
-      console.log('空')
-      return
-    }
-    // const action = {
-    //   type: ADD,
-    //   value: data
-    // }
-    const action = ADD_ACTION(data)
-    store.dispatch(action)
-
-    store.subscribe(this.listerner)
-    console.log(this.state)
-    console.log('提交')
-
+    console.log(data)
+    return data
+  }
+  userIDChange = (e) => {
+    this.setState({
+      userID: e.target.value
+    })
   }
   render() {
-    const { userID } = this.state
+    const { userID, username, password } = this.state
     return (
       <div className="login">
         <div className="title">注册</div>
         <div className="input-wrap">
+          <label htmlFor="userID" className="input-title">用户名ID:</label>
+          <input id="userID"
+            className="input"
+            value={userID}
+            onChange={this.userIDChange}
+          />
+        </div>
+        <div className="input-wrap">
           <label htmlFor="user" className="input-title">用户名:</label>
           <input id="user"
             className="input"
+            value={username}
             onChange={this.userChange}
           />
         </div>
@@ -86,10 +110,13 @@ export default class Login extends React.Component {
           <input id="password"
             className="input"
             onChange={this.passwordChange}
+            value={password}
           />
         </div>
-        <div>{userID}</div>
-        <div className="btn" onClick={this.loginIn}>注册</div>
+
+        <div className="btn" onClick={this.loginIn}>登入</div>
+        <div className="btn" onClick={this.loginOut}>登出</div>
+        <div className="btn result" onClick={this.result}>结果</div>
       </div>
     )
   }
