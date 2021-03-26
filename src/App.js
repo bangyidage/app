@@ -17,7 +17,7 @@ export default class App extends React.Component {
               ROUTERS.map((item) => {
                 const { path, iconPath, name } = item
                 return (
-                  <Link className="tab" to={path} key={path}>
+                  <Link className="tab" to={path} key={path} replace>
                     <img className="tab-imgs" src={iconPath} alt={name} />
                     <div>{name}</div>
                   </Link>

@@ -1,5 +1,3 @@
-import { requredData } from '../../store/action-creators'
-import { AXIOS_REQUIRE_ACTION } from '../../store/action-creators'
 import React, { Component } from 'react';
 import { store } from '../../store/store';
 import { ls } from '../../utils/require'
@@ -33,10 +31,6 @@ class UiHeader extends Component {
   setStateData = () => {
     const { data } = this.state
     console.log(data)
-    const action = AXIOS_REQUIRE_ACTION(data)
-
-    store.dispatch(action)
-
   }
   getStateData = () => {
     store.subscribe(this.listen)
