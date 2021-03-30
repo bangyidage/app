@@ -1,13 +1,10 @@
-.App {}
+App {}
 
 .tabs {
-  display: -webkit-box;
   display: flex;
   position: fixed;
   bottom: 0;
   left: 50%;
-  -webkit-transform: translateX(-50%);
-  -ms-transform: translateX(-50%);
   transform: translateX(-50%);
   width: 100%;
   height: 50px;
@@ -18,14 +15,17 @@
 }
 
 .tab {
-  display: inline-block;
-  width: 25%;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-size: 14px;
   text-align: center;
 }
 
 .tab img {
-  margin: 0 auto;
   display: block;
-  width: 28px;
-  height: 28px;
+  width: 24px;
+  height: 24px;
 }

@@ -1,6 +1,6 @@
 import { Component, Fragment } from 'react';
 import './App.css'
-import { div, Route, Switch, BrowserRouter } from "react-router-dom";
+import { Route, Switch, BrowserRouter } from "react-router-dom";
 import Home from './pages/Home'
 import Person from './pages/Person'
 import Msg from './pages/msg'
@@ -16,10 +16,9 @@ class App extends Component {
     this.state = {}
   }
   componentDidMount() {
-    
+
   }
-  pathTo = (pathData) => {
-    console.log(pathData)
+  pathTo = (pathData, e) => {
     if (window.location.pathname === pathData)
       return
     window.location.replace(pathData)
