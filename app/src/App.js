@@ -10,6 +10,7 @@ import HomeImg from './imgs/selected/index.png'
 import DiscoverImg from './imgs/selected/discover.png'
 import MsgImg from './imgs/selected/msgs.png'
 import PersonImg from './imgs/selected/person.png'
+import Login from './pages/login';
 class App extends Component {
   constructor(props) {
     super(props);
