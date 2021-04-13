@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { store } from '../../store/store'
 import { ActionLogin } from '../../store/action-creator'
-
+import axios from 'axios'
 class Home extends Component {
   constructor(props) {
     super(props);
@@ -11,7 +11,7 @@ class Home extends Component {
     }
 
   }
-  componentDidMount() {
+  async componentDidMount() {
 
   }
   listener = () => {
@@ -25,14 +25,11 @@ class Home extends Component {
 
   }
   submitData = () => {
-    let value = {
-      userId: 5
-    }
-    store.dispatch(
-      ActionLogin(value)
-    )
-    store.subscribe(this.listener);
-    window.location.replace('/msg')
+    axios.get('http://localhost:7002/').then((res) => {
+      console.log(res)
+    }).catch((e) => {
+      console.log(e)
+    })
   }
   render() {
     const { userId } = this.state
