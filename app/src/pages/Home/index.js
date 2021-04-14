@@ -2,17 +2,22 @@ import React, { Component } from 'react';
 import { store } from '../../store/store'
 import { ActionLogin } from '../../store/action-creator'
 import axios from 'axios'
+import App from '../../components/tabbar';
 class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
       name: '',
-      userId: ''
+      userId: 0
     }
 
   }
   async componentDidMount() {
-
+    const { userId } = this.state
+    if (userId === 0) {
+      window.location.replace(`/login`)
+      return
+    }
   }
   listener = () => {
     let data = store.getState()
@@ -35,15 +40,11 @@ class Home extends Component {
     const { userId } = this.state
     console.log(this.props)
     return (
-      <div >
-        <h3>home</h3>
-        <input
-          type="text"
-          onChange={this.nameChange}
-          value={userId}
-        />
-        <div onClick={this.submitData}>点</div>
+      <div>
+        <App />
       </div>
+
+
     );
   }
 }

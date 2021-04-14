@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import App from '../../components/tabbar';
 class Discover extends Component {
   constructor(props) {
     super(props);
@@ -7,7 +8,9 @@ class Discover extends Component {
   render() {
     console.log('1')
     return (
-      <div>discover</div>
+      <div>discover
+        <App />
+      </div>
     );
   }
 }

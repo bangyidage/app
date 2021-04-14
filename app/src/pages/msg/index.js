@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import App from '../../components/tabbar';
 import { store } from '../../store/store'
 class Msg extends Component {
   constructor(props) {
@@ -15,6 +16,7 @@ class Msg extends Component {
     return (
       <div>{this.state.data}
         <button onClick={this.redi}>啦啦啦</button>
+        <App />
       </div>
     );
   }

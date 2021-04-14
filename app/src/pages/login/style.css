@@ -1,0 +1,59 @@
+.login {
+  padding: 0px 30px;
+}
+
+.title {
+  text-align: center;
+  border-radius: 3%;
+}
+
+.form-wrap {
+  display: flex;
+  align-items: center;
+  height: 60px;
+  font-size: 14px;
+  font-weight: 400;
+  color: #2F3742;
+}
+
+.account {
+  padding-top: 30px;
+}
+
+.input-title {
+  width: 79px;
+  font-weight: 500;
+  line-height: 60px;
+  text-align: left;
+}
+
+.input-wrap {
+  flex: 1;
+}
+
+.input-self {
+  width: 100%;
+  border: none;
+  background: #fff;
+  line-height: 20px;
+}
+
+.confirm-btn {
+  margin: 31px auto 0;
+  width: 264px;
+  line-height: 48px;
+  background: -webkit-linear-gradient( 130deg, #2f5aff, #008fff);
+  background: linear-gradient( 320deg, #2f5aff, #008fff);
+  font-size: 16px;
+  border-radius: 25px;
+  font-weight: 400;
+  color: #fff;
+  text-align: center;
+  cursor: pointer;
+}
+
+@media screen and (max-width:300px) {
+  .confirm-btn {
+    width: 200px;
+  }
+}
