@@ -29,13 +29,7 @@ class Home extends Component {
   nameChange = () => {
 
   }
-  submitData = () => {
-    axios.get('http://localhost:7002/').then((res) => {
-      console.log(res)
-    }).catch((e) => {
-      console.log(e)
-    })
-  }
+
   render() {
     const { userId } = this.state
     console.log(this.props)
